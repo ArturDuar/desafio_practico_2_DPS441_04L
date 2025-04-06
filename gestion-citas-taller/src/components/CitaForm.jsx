@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableHighlight, StyleSheet, ScrollView } from 'react-native';
 import Colors from '../utils/colors';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { formatearFecha, formatearHora } from '../utils/format';
@@ -9,12 +9,13 @@ const CitaForm = ({ cita, handleChange, handleSubmit, handleExit, titulo}) => {
     const [isTimePickerVisible, setTimePickerVisible] = useState(false);
 
     return(
-        <View style={styles.container}>
+        <ScrollView>
+            <View style={styles.container}>
             <Text style={styles.titulo}>{titulo}</Text>
 
             <Text style={styles.label}>Seleccionar fecha</Text>
-            <TouchableHighlight onPress={() => setDatePickerVisible(true)}>
-                <Text style={styles.input}>{cita.fecha ? formatearFecha(cita.fecha) : "Seleccionar fecha"}</Text>
+            <TouchableHighlight onPress={() => setDatePickerVisible(true)} style={styles.input}>
+                <Text style={styles.datetime}>{cita.fecha ? formatearFecha(cita.fecha) : "Seleccionar fecha"}</Text>
             </TouchableHighlight>
         
             {/*mostrar modal de datepicker solo cuando se presiona el boton*/}
@@ -37,8 +38,8 @@ const CitaForm = ({ cita, handleChange, handleSubmit, handleExit, titulo}) => {
             )}
             
             <Text style={styles.label}>Seleccionar hora</Text>
-            <TouchableHighlight onPress={() => setTimePickerVisible(true)}>
-                <Text style={styles.input}>{cita.hora ? formatearHora(cita.hora) : "Seleccionar hora"}</Text>
+            <TouchableHighlight onPress={() => setTimePickerVisible(true)} style={styles.input}>
+                <Text style={styles.datetime}>{cita.hora ? formatearHora(cita.hora) : "Seleccionar hora"}</Text>
             </TouchableHighlight>
             
             {/*mostrar modal de timepicker solo cuando se presiona el boton*/}
@@ -56,12 +57,11 @@ const CitaForm = ({ cita, handleChange, handleSubmit, handleExit, titulo}) => {
                             handleChange(fechaSeleccionada, 'hora');
                         }
                     }}
-                    
                     minimumDate={new Date()} // Hora mínima es la hora actual
                 />
             )}
 
-            <Text>Nombre del cliente</Text>
+            <Text style={styles.label}>Nombre del cliente</Text>
             <TextInput 
             style={styles.input} 
             value={cita.cliente}
@@ -69,29 +69,33 @@ const CitaForm = ({ cita, handleChange, handleSubmit, handleExit, titulo}) => {
             onChangeText={(text) => handleChange(text, 'cliente')}
             />
 
-            <Text>Modelo de vehiculo</Text>
+            <Text style={styles.label}>Modelo de vehiculo</Text>
             <TextInput 
             style={styles.input} 
             value={cita.modelo_vehiculo}
             placeholder="Modelo de vehiculo" 
             onChangeText={(text) => handleChange(text, 'modelo_vehiculo')}/>
 
-            <Text>Descripcion</Text>
+            <Text style={styles.label}>Descripcion</Text>
             <TextInput 
             style={styles.input} 
             value={cita.descripcion}
-            placeholder="Descripcion" 
+            placeholder="Descripcio (Opcional)" 
             onChangeText={(text) => handleChange(text, 'descripcion')}/>
 
-            <TouchableHighlight style={styles.boton} onPress={() => handleSubmit()}>
-                <Text style={styles.boton_texto}>Guardar</Text>
-            </TouchableHighlight>
+            <View style={styles.boton_container}>
+                <TouchableHighlight style={styles.boton} onPress={() => handleSubmit()}>
+                    <Text style={styles.boton_texto}>Guardar</Text>
+                </TouchableHighlight>
 
-            <TouchableHighlight style={styles.boton_cancelar} onPress={() => handleExit()}>
-                <Text style={styles.boton_texto}>Cancelar</Text>
-            </TouchableHighlight>
+                <TouchableHighlight style={styles.boton_cancelar} onPress={() => handleExit()}>
+                    <Text style={styles.boton_texto}>Cancelar</Text>
+                </TouchableHighlight>
+            </View>
+            
 
         </View>
+        </ScrollView>
     )
 }
 
@@ -104,23 +108,37 @@ const styles = StyleSheet.create({
         padding: 20,
     },
     titulo: {
-        fontSize: 24,
+        fontSize: 30,
         textAlign: 'center',
         marginBottom: 20,
+        fontWeight: 'bold',
+    }, 
+    datetime: {
+        fontWeight: '700',
+        textAlign: 'left'
     },
     input: {
+        marginHorizontal: 10,
         height: 40,
         borderColor: 'gray',
         borderWidth: 1,
         marginBottom: 20,
         paddingHorizontal: 10,
         borderRadius: 5,
+        maxWidth: '100%',
+        justifyContent: 'center',
+        fontWeight: '700'
+    },
+    boton_container: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
     },
     boton: {
         backgroundColor: Colors.COLOR_PRIMARY,
         padding: 10,
         borderRadius: 5,
-        marginBottom: 20,
+        width: '40%',
     },
     boton_texto: {
         textAlign: 'center',
@@ -128,6 +146,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     boton_cancelar: {
+        width: '40%',
         backgroundColor: 'red',
         padding: 10,
         borderRadius: 5,

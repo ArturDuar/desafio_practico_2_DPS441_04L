@@ -1,8 +1,8 @@
 import {FlatList, View, Text, TouchableHighlight, StyleSheet, Alert} from "react-native";
 import CitaCard from "../components/CitaCard";
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 import Colors from "../utils/colors";
-import {eliminarCita, guardarCita, obtenerCitas} from "../services/CitaService";
+import {eliminarCita, obtenerCitas} from "../services/CitaService";
 
 
 const Inicio = ({navigation, citas, setCitas}) => {
@@ -29,11 +29,12 @@ const Inicio = ({navigation, citas, setCitas}) => {
                 {citas.length === 0 ? <Text style={styles.error}>No hay citas registradas</Text> : (
 
                     //Si hay citas, mostrar lista de citas
-                    <FlatList
+                        <FlatList
+                        contentContainerStyle={styles.lista}
                         renderItem={({item}) => <CitaCard item={item} eliminarCita={(id) =>eliminarCita(id, setCitas)} navigation={navigation}/>}
                         data={citas}
                         keyExtractor={(item, index) => index.toString()}
-                    />
+                        />
                 )}
         </View>
     )
@@ -43,12 +44,21 @@ export default Inicio;
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+    lista: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+    },
+
     titulo: {
         fontSize: 20,
         textAlign: 'center',
-        padding: 20,
+        padding: 10,
+        fontWeight: 'bold',
     },
     boton:{
         backgroundColor: Colors.COLOR_PRIMARY,
@@ -56,6 +66,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 15,
         marginBottom: 10,
+        width: '60%'
     },
     boton_texto :{
         textAlign: 'center',

@@ -29,12 +29,14 @@ const CitaCard = ({item, eliminarCita, navigation}) =>{
                 <Text style={styles.label}>Descripcion</Text>
                 <Text style={styles.dato}>{item.descripcion ? item.descripcion : "(Vacio)"}</Text>
             </View>
-            <TouchableHighlight style={styles.boton} onPress={()=> eliminarCita(item)}>
-                <Text style={styles.boton_texto}>Eliminar Cita</Text>
-            </TouchableHighlight>
-            <TouchableHighlight style={styles.boton_editar} onPress={()=> navigation.navigate('Editar Cita', {item})}>
-                <Text style={styles.boton_texto}>Editar Cita</Text>
-            </TouchableHighlight>
+            <View style={styles.grupo_botones}>
+                <TouchableHighlight style={styles.boton} onPress={()=> eliminarCita(item)}>
+                    <Text style={styles.boton_texto}>Eliminar Cita</Text>
+                </TouchableHighlight>
+                <TouchableHighlight style={styles.boton_editar} onPress={()=> navigation.navigate('Editar Cita', {item})}>
+                    <Text style={styles.boton_texto}>Editar Cita</Text>
+                </TouchableHighlight>
+            </View>
         </View>
     )
 }
@@ -45,7 +47,9 @@ export default CitaCard;
 const styles = StyleSheet.create({
     card: {
         backgroundColor: Colors.COLOR_SECONDARY,
+        maxWidth: '400',
         margin: 15,
+        
         padding: 15,
         borderRadius: 20,
         justifyContent: 'center',
@@ -77,6 +81,13 @@ const styles = StyleSheet.create({
         padding: 15,
         marginBottom: 0.5
     },
+    grupo_botones: {
+        display: 'flex',
+        flexDirection: 'row',
+        gap: 20,
+        justifyContent:'center',
+        width: '100%',
+    },
     dato: {
         flex: 2,
         textAlign: 'left',
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 10,
         padding: 15,
-        width: '50%',
+        width: '30%',
     },
     boton_texto :{
         textAlign: 'center',
@@ -109,6 +120,6 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 10,
         padding: 15,
-        width: '50%',
+        width: '30%',
     },
 })

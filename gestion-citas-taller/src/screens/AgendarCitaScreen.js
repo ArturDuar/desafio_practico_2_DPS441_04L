@@ -10,8 +10,8 @@ const AgendarCita = ({navigation, citas, setCitas}) => {
 
     //Estado para guardar la cita
     const [cita, setCita] = useState({
-        fecha: new Date(),
-        hora: new Date(),
+        fecha: "",
+        hora: "",
         cliente: "",
         modelo_vehiculo: "",
         descripcion: ""
