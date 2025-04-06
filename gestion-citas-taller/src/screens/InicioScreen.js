@@ -22,7 +22,7 @@ const Inicio = () => {
     return(
         <View style={styles.container}>
                 <Text style={styles.titulo}>Lista de citas</Text>
-                <TouchableHighlight style={styles.boton}>
+                <TouchableHighlight style={styles.boton} onPress={() => navigator.navigate('')}>
                     <Text style={styles.boton_texto}>Crear nueva Cita</Text>
                 </TouchableHighlight>
 

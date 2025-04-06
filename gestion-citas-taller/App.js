@@ -3,9 +3,9 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
-import Inicio from "./src/screens/Inicio";
-import AgendarCita from "./src/screens/AgendarCita";
-import EditarCita from "./src/screens/EditarCita";
+import Inicio from "./src/screens/InicioScreen";
+import AgendarCita from "./src/screens/AgendarCitaScreen";
+import EditarCita from "./src/screens/EditarCitaScreen";
 
 const App = () => {
 
