@@ -1,19 +1,18 @@
 import {FlatList, View, Text, TouchableHighlight, StyleSheet, Alert} from "react-native";
 import CitaCard from "../components/CitaCard";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
-import Colors from "../utils/Colors";
-import {eliminarCita, guardarCita, obtenerCitas} from "../services/CitasService";
+import Colors from "../utils/colors";
+import {eliminarCita, guardarCita, obtenerCitas} from "../services/CitaService";
 
 
-const Inicio = () => {
-    const [citas, setCitas] = useState([]);
-
+const Inicio = ({navigation, citas, setCitas}) => {
 
     useEffect(() => {
         const cargarDatos = async () => {
             const citasStorage = await obtenerCitas();
-            setCitas(citasStorage);
+            if (Array.isArray(citasStorage)) {
+                setCitas((citasStorage));
+            }
         }
         cargarDatos();
     }, []);
@@ -22,7 +21,7 @@ const Inicio = () => {
     return(
         <View style={styles.container}>
                 <Text style={styles.titulo}>Lista de citas</Text>
-                <TouchableHighlight style={styles.boton} onPress={() => navigator.navigate('')}>
+                <TouchableHighlight style={styles.boton} onPress={() => navigation.navigate('Crear Cita')}>
                     <Text style={styles.boton_texto}>Crear nueva Cita</Text>
                 </TouchableHighlight>
 
@@ -31,11 +30,10 @@ const Inicio = () => {
 
                     //Si hay citas, mostrar lista de citas
                     <FlatList
-                        renderItem={({item}) => <CitaCard item={item} eliminarCita={(id) =>eliminarCita(id, setCitas)}/>}
+                        renderItem={({item}) => <CitaCard item={item} eliminarCita={(id) =>eliminarCita(id, setCitas)} navigation={navigation}/>}
                         data={citas}
                         keyExtractor={(item, index) => index.toString()}
                     />
-
                 )}
         </View>
     )

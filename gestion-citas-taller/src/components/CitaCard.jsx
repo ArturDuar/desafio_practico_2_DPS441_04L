@@ -1,19 +1,20 @@
 import {StyleSheet, Text, TouchableHighlight, View} from "react-native";
-import Colors from "../utils/Colors";
+import Colors from "../utils/colors";
+import { formatearFecha, formatearHora } from "../utils/format";
 
-const CitaCard = ({item, eliminarCita}) =>{
+const CitaCard = ({item, eliminarCita, navigation}) =>{
     return(
         <View style={styles.card}>
             <View style={styles.horafecha}>
 
                 <View style={styles.fecha}>
                     <Text style={styles.label_hora_fecha}>Fecha</Text>
-                    <Text style={styles.fecha_hora_dato} >{item.fecha}</Text>
+                    <Text style={styles.fecha_hora_dato} >{formatearFecha(item.fecha)}</Text>
                 </View>
 
                 <View style={styles.hora}>
                     <Text style={styles.label_hora_fecha}>Hora</Text>
-                    <Text style={styles.fecha_hora_dato}>{item.hora}</Text>
+                    <Text style={styles.fecha_hora_dato}>{formatearHora(item.hora)}</Text>
                 </View>
             </View>
             <View style={styles.grupo_dato}>
@@ -26,10 +27,13 @@ const CitaCard = ({item, eliminarCita}) =>{
             </View>
             <View style={styles.grupo_dato}>
                 <Text style={styles.label}>Descripcion</Text>
-                <Text style={styles.dato}>{item.descripcion}</Text>
+                <Text style={styles.dato}>{item.descripcion ? item.descripcion : "(Vacio)"}</Text>
             </View>
-            <TouchableHighlight style={styles.boton} onPress={()=> eliminarCita(item.id)}>
+            <TouchableHighlight style={styles.boton} onPress={()=> eliminarCita(item)}>
                 <Text style={styles.boton_texto}>Eliminar Cita</Text>
+            </TouchableHighlight>
+            <TouchableHighlight style={styles.boton_editar} onPress={()=> navigation.navigate('Editar Cita', {item})}>
+                <Text style={styles.boton_texto}>Editar Cita</Text>
             </TouchableHighlight>
         </View>
     )
@@ -43,7 +47,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.COLOR_SECONDARY,
         margin: 15,
         padding: 15,
-        borderRadius: 5,
+        borderRadius: 20,
         justifyContent: 'center',
         alignItems: 'center',
     },
@@ -53,7 +57,7 @@ const styles = StyleSheet.create({
         padding: 20,
         backgroundColor: 'rgb(250,249,249)',
         marginBottom: 20,
-        borderRadius: 2.5,
+        borderRadius: 10,
 
     },
     hora: {
@@ -90,13 +94,21 @@ const styles = StyleSheet.create({
     },
     boton:{
         backgroundColor: Colors.COLOR_TERCIARY,
-        marginVertical: 15,
+        marginVertical: 10,
         borderRadius: 10,
         padding: 15,
+        width: '50%',
     },
     boton_texto :{
         textAlign: 'center',
         color: 'white',
         fontWeight: '600',
-    }
+    },
+    boton_editar: {
+        backgroundColor: Colors.COLOR_WARNING,
+        marginVertical: 10,
+        borderRadius: 10,
+        padding: 15,
+        width: '50%',
+    },
 })

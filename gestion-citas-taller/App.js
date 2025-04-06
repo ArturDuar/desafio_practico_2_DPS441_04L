@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from "@react-navigation/native";
@@ -8,14 +8,25 @@ import AgendarCita from "./src/screens/AgendarCitaScreen";
 import EditarCita from "./src/screens/EditarCitaScreen";
 
 const App = () => {
+  const [citas, setCitas] = useState([]);
 
-    const Stack = createStackNavigator();
+  const Stack = createStackNavigator();
   return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Inicio">
-            <Stack.Screen name="Inicio" component={Inicio}/>
-            <Stack.Screen name="Agendar Cita" component={AgendarCita}/>
-            <Stack.Screen name="Editar Cita" component={EditarCita}/>
+        
+            <Stack.Screen name="Inicio">
+            {(props) => <Inicio citas={citas} setCitas={setCitas} {...props}/>}
+            </Stack.Screen>
+
+            <Stack.Screen name="Crear Cita">
+            {(props) => <AgendarCita citas={citas} setCitas={setCitas} {...props}/>}
+            </Stack.Screen>
+
+            <Stack.Screen name="Editar Cita">
+            {(props) => <EditarCita citas={citas} setCitas={setCitas} {...props}/>}
+            </Stack.Screen>
+
         </Stack.Navigator>
       </NavigationContainer>
   );
