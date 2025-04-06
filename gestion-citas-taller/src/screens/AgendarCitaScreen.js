@@ -10,8 +10,8 @@ const AgendarCita = ({navigation, citas, setCitas}) => {
 
     //Estado para guardar la cita
     const [cita, setCita] = useState({
-        fecha: "",
-        hora: "",
+        fecha: null,
+        hora: null,
         cliente: "",
         modelo_vehiculo: "",
         descripcion: ""
@@ -29,7 +29,7 @@ const AgendarCita = ({navigation, citas, setCitas}) => {
     const handleSubmit = () => {
     
         //Validar si la entrada es valida
-        const validacion = validarEntrada(cita, citas);
+        const validacion = validarEntrada(cita);
         if (validacion.status === false) {
             Alert.alert("Error", validacion.message);
             return;

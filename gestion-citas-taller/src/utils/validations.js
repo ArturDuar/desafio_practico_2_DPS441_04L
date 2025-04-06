@@ -42,8 +42,8 @@ export const validarFechaModelo = (cita, citas) => {
     // Si no hay conflictos, devuelve status: true
 };
 
-export const validarEntrada = (cita, citas) => {
-    if (cita.fecha === "" || cita.hora === "" || cita.cliente === "" || cita.modelo_vehiculo === "") {
+export const validarEntrada = (cita) => {
+    if (cita.fecha === null || cita.hora === null || cita.cliente === "" || cita.modelo_vehiculo === "") {
         return { status: false, message: "Rellena los campos correctamente" };
     }
 
