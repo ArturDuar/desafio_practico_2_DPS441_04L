@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.COLOR_SECONDARY,
         maxWidth: '400',
         margin: 15,
-        
+        flex: 1,
         padding: 15,
         borderRadius: 20,
         justifyContent: 'center',
