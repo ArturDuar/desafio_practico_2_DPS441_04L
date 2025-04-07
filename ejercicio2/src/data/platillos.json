@@ -1,0 +1,132 @@
+[
+  {
+    "id": 1,
+    "foto": {
+      "src": "https://recetasdecocina.elmundo.es/wp-content/uploads/2024/06/pupusas-salvadorenas.jpg",
+      "alt": "Pupusas de queso y frijol servidas con curtido"
+    },
+    "nombre": "Pupusas",
+    "region": "El Salvador",
+    "precio": 1.50,
+    "ingredientes": ["Masa de maíz", "Queso", "Frijoles", "Chicharrón"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Tortillas rellenas típicas de El Salvador, acompañadas de curtido y salsa de tomate."
+  },
+  {
+    "id": 2,
+    "foto": {
+      "src": "https://mejorconsalud.as.com/wp-content/uploads/2018/03/Receta-de-tamales-caseros-768x512.jpg?auto=webp&quality=60&width=1920&crop=16:9,smart,safe",
+      "alt": "Tamales envueltos en hojas de plátano"
+    },
+    "nombre": "Tamales",
+    "region": "Centroamérica",
+    "precio": 2.00,
+    "ingredientes": ["Masa", "Pollo", "Papas", "Zanahoria", "Aceitunas"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Masa rellena de carne y vegetales, cocida en hojas de plátano."
+  },
+  {
+    "id": 3,
+    "foto": {
+      "src": "https://cielitorosado.com/wp-content/uploads/2022/04/Ceviche-de-salmon-sm.jpg",
+      "alt": "Ceviche servido en copa con galletas saladas"
+    },
+    "nombre": "Ceviche",
+    "region": "Perú",
+    "precio": 5.00,
+    "ingredientes": ["Pescado blanco", "Limón", "Cebolla morada", "Cilantro"],
+    "categoria": "Entrada",
+    "descripcion": "Pescado crudo marinado en jugo de limón, típico de la costa peruana."
+  },
+  {
+    "id": 4,
+    "foto": {
+      "src": "https://expressnews.uk.com/wp-content/uploads/2024/10/principal_baleada_origen.jpg",
+      "alt": "Baleada hondureña con frijoles, queso y crema"
+    },
+    "nombre": "Baleadas",
+    "region": "Honduras",
+    "precio": 2.00,
+    "ingredientes": ["Tortilla de harina", "Frijoles", "Queso", "Crema"],
+    "categoria": "Desayuno",
+    "descripcion": "Tortilla de harina gruesa rellena con frijoles refritos, queso y crema."
+  },
+  {
+    "id": 5,
+    "foto": {
+      "src": "https://assets.epicurious.com/photos/63d4367c9cd8e164fe127523/1:1/w_4364,h_4364,c_limit/Arepas_RECIPE_120722_43695-v2.jpg",
+      "alt": "Arepas doradas rellenas de queso fundido"
+    },
+    "nombre": "Arepas",
+    "region": "Venezuela",
+    "precio": 2.50,
+    "ingredientes": ["Harina de maíz precocida", "Queso", "Pollo", "Carne mechada"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Panecillos de maíz cocidos a la plancha y rellenos al gusto."
+  },
+  {
+    "id": 6,
+    "foto": {
+      "src": "https://comedera.com/wp-content/uploads/sites/9/2022/03/feijoada-brasilena.jpg",
+      "alt": "Feijoada servida con arroz y naranjas"
+    },
+    "nombre": "Feijoada",
+    "region": "Brasil",
+    "precio": 6.00,
+    "ingredientes": ["Frijoles negros", "Cerdo", "Arroz", "Naranjas"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Guiso de frijoles negros con carne de cerdo, considerado el plato nacional brasileño."
+  },
+  {
+    "id": 7,
+    "foto": {
+      "src": "https://www.aceitesdeolivadeespana.com/wp-content/uploads/2019/05/receta_de_chiles_en_nogada-1000x768.jpeg",
+      "alt": "Chiles en nogada con salsa blanca, granada y perejil"
+    },
+    "nombre": "Chiles en Nogada",
+    "region": "México",
+    "precio": 7.50,
+    "ingredientes": ["Chile poblano", "Carne molida", "Fruta", "Nuez", "Granada"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Chiles rellenos bañados en una salsa de nuez con granada y perejil, típicos del mes patrio."
+  },
+  {
+    "id": 8,
+    "foto": {
+      "src": "https://www.elespectador.com/resizer/v2/LCDPGSB5GNH5BHH6PCTQFY7M34.jpg?auth=33d410abca65c04e17687f0de7d8e1b641356c857e9a258cee2ea943f3f759de&width=920&height=613&smart=true&quality=60",
+      "alt": "Sopa de mondongo con vegetales servida en plato hondo"
+    },
+    "nombre": "Mondongo",
+    "region": "Colombia",
+    "precio": 4.00,
+    "ingredientes": ["Panza de res", "Yuca", "Papa", "Cilantro"],
+    "categoria": "Sopa",
+    "descripcion": "Sopa espesa a base de callos de res y vegetales, muy popular en América Latina."
+  },
+  {
+    "id": 9,
+    "foto": {
+      "src": "https://i0.wp.com/recetaskwa.com/wp-content/uploads/2024/01/Locro_de_Papa_2.jpg?ssl=1",
+      "alt": "Locro de papa con aguacate y queso"
+    },
+    "nombre": "Locro de Papa",
+    "region": "Ecuador",
+    "precio": 3.00,
+    "ingredientes": ["Papa", "Queso", "Leche", "Achiote", "Aguacate"],
+    "categoria": "Sopa",
+    "descripcion": "Sopa cremosa de papa con queso y achiote, servida con aguacate."
+  },
+  {
+    "id": 10,
+    "foto": {
+      "src": "https://familiakitchen.com/wp-content/uploads/2021/03/Plated-ropa-vieja-scaled.jpg",
+      "alt": "Ropa vieja cubana acompañada de arroz blanco"
+    },
+    "nombre": "Ropa Vieja",
+    "region": "Cuba",
+    "precio": 5.50,
+    "ingredientes": ["Carne deshebrada", "Tomate", "Pimiento", "Cebolla", "Ajo"],
+    "categoria": "Plato fuerte",
+    "descripcion": "Carne de res deshebrada en salsa de tomate con vegetales, plato nacional de Cuba."
+  }
+]
