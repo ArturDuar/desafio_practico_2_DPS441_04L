@@ -6,6 +6,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import Inicio from "./src/screens/InicioScreen";
 import AgendarCita from "./src/screens/AgendarCitaScreen";
 import EditarCita from "./src/screens/EditarCitaScreen";
+import Colors from './src/utils/colors';
 
 const App = () => {
   const [citas, setCitas] = useState([]);
@@ -13,10 +14,10 @@ const App = () => {
   const Stack = createStackNavigator();
   return (
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="Inicio">
+        <Stack.Navigator initialRouteName="Inicio" screenOptions={{headerStyle: {backgroundColor: Colors.COLOR_PRIMARY}, headerTintColor: 'white', headerTitleStyle: {fontWeight: 'bold'}}}>
         
             <Stack.Screen name="Inicio">
-            {(props) => <Inicio citas={citas} setCitas={setCitas} {...props}/>}
+            {(props) => <Inicio citas={citas} setCitas={setCitas} {...props} />}
             </Stack.Screen>
 
             <Stack.Screen name="Crear Cita">

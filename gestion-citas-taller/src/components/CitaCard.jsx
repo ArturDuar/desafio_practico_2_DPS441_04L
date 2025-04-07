@@ -80,10 +80,12 @@ const styles = StyleSheet.create({
     grupo_dato : {
         flexDirection: 'row',
         backgroundColor: '#fff',
-        padding: 5,
+        padding: 15,
         margin: 5,
         backgroundColor: 'rgb(250,249,249)',
         borderRadius: 10,
+        gap: 15,
+        
     },
     grupo_botones: {
         display: 'flex',
@@ -91,19 +93,18 @@ const styles = StyleSheet.create({
         gap: 20,
         justifyContent:'center',
         width: '100%',
-        marginTop: 'auto'
+        marginTop: 'auto',
     },
     dato: {
         flex: 1,
         textAlign: 'left',
-        padding: 15,
+        fontSize: 18,
+        fontWeight: '900',
     },
     label :{
         flex: 1,
         textAlign: 'right',
-        padding: 15,
-
-        
+        fontSize: 18,
     },
     label_hora_fecha: {
         fontSize: 15,
