@@ -1,4 +1,4 @@
-import { buscarCitaValidar } from "../services/CitaService";
+
 import { formatearFecha, formatearHora } from "./format";
 
 export const validarNombre = (nombre) => {
@@ -32,7 +32,7 @@ export const validarFechaModelo = (cita, citas) => {
         const horaItem = formatearHora(item.hora);
 
         if (fechaItem === fecha && horaItem === hora && item.modelo_vehiculo === cita.modelo_vehiculo) {
-            return { status: false, message: "Ya hay una cita a esa fecha y hora con ese modelo de vehiculo" };
+            return { status: false, message: "Ya hay una cita a esa fecha y hora con ese modelo de vehículo" };
         } else if (fechaItem === fecha && horaItem === hora) {
             return { status: false, message: "Ya hay una cita a esa fecha y hora" };
         }
@@ -49,12 +49,12 @@ export const validarEntrada = (cita) => {
 
     //Validar si el nombre del cliente es valido
     if (!validarNombre(cita.cliente)) {
-        return { status: false, message: "El nombre del cliente no es valido" };
+        return { status: false, message: "El nombre del cliente no es válido" };
     }
 
     //Validar si la hora es posterior a la hora actual
     if (!validarHora(cita.hora)) {
-        return { status: false, message: "La hora no es valida, debe ser posterior a la hora actual" };
+        return { status: false, message: "La hora no es válida, debe ser posterior a la hora actual" };
     }
 
     return { status: true, message: "Entrada valida" };

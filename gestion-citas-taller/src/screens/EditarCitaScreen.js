@@ -11,7 +11,6 @@ const EditarCita = ({navigation, citas, setCitas, route}) => {
     useEffect(() => {
         const cargarDatos = async () => {
             const citasStorage = await obtenerCitas();
-            console.log(citasStorage);
             if (Array.isArray(citasStorage)) {
                 const citaActual = citasStorage.find(cita => cita.id === item.id);
                 setCita(citaActual);

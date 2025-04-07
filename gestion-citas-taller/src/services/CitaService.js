@@ -37,10 +37,13 @@ export const eliminarCita = (cita, setCitas) => {
                 text: "OK",
                 onPress: () => {
                     obtenerCitas().then((citas) => {
+                        console.log("Cita Eliminada que será eliminada", citas.filter((item) => item.id === cita.id));
+                        console.log(citas.filter((item) => item.id === cita.id));
                         const nuevasCitas = citas.filter((item) => item.id !== cita.id);
                         guardarCita(nuevasCitas, setCitas);
                         setCitas(nuevasCitas);
                     });
+                    
                     console.log(`Cita Eliminada ${cita.id}`);
 
                 },

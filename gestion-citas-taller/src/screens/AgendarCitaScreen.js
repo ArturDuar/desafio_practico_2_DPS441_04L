@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import CitaForm from '../components/CitaForm';
-import shortid from "react-id-generator";
 import { Alert } from 'react-native';
 import { guardarCita } from '../services/CitaService';
 import { validarEntrada, validarFechaModelo } from '../utils/validations';
@@ -38,7 +37,7 @@ const AgendarCita = ({navigation, citas, setCitas}) => {
         //Id aleatorio para una cita
         const nuevaCita = {
             ...cita,
-            id: shortid()
+            id: Math.random().toString(36).substring(2, 10)
         }
 
          //Validar si ya existe una cita con la misma fecha y hora o incluso, con el mismo modelo de vehiculo

@@ -80,7 +80,7 @@ const CitaForm = ({ cita, handleChange, handleSubmit, handleExit, titulo}) => {
             <TextInput 
             style={styles.input} 
             value={cita.descripcion}
-            placeholder="Descripcio (Opcional)" 
+            placeholder="Descripción (Opcional)" 
             onChangeText={(text) => handleChange(text, 'descripcion')}/>
 
             <View style={styles.boton_container}>
