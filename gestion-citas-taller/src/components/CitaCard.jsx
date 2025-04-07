@@ -52,8 +52,11 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 15,
         borderRadius: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
+        flexDirection: 'column',
+        shadowColor: '#000',
+        shadowOpacity: 0.25,
+        shadowRadius: 3,
+        elevation: 5,
     },
     horafecha: {
         display: 'flex',
@@ -76,10 +79,11 @@ const styles = StyleSheet.create({
     },
     grupo_dato : {
         flexDirection: 'row',
-        gap: 20,
         backgroundColor: '#fff',
-        padding: 15,
-        marginBottom: 0.5
+        padding: 5,
+        margin: 5,
+        backgroundColor: 'rgb(250,249,249)',
+        borderRadius: 10,
     },
     grupo_botones: {
         display: 'flex',
@@ -87,14 +91,19 @@ const styles = StyleSheet.create({
         gap: 20,
         justifyContent:'center',
         width: '100%',
+        marginTop: 'auto'
     },
     dato: {
-        flex: 2,
+        flex: 1,
         textAlign: 'left',
+        padding: 15,
     },
     label :{
         flex: 1,
         textAlign: 'right',
+        padding: 15,
+
+        
     },
     label_hora_fecha: {
         fontSize: 15,
@@ -108,7 +117,7 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 10,
         padding: 15,
-        width: '30%',
+        width: '45%',
     },
     boton_texto :{
         textAlign: 'center',
@@ -120,6 +129,6 @@ const styles = StyleSheet.create({
         marginVertical: 10,
         borderRadius: 10,
         padding: 15,
-        width: '30%',
+        width: '45%',
     },
 })

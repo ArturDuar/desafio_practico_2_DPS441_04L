@@ -35,14 +35,21 @@ const AgendarCita = ({navigation, citas, setCitas}) => {
             return;
         }
 
-        //Validar si ya existe una cita con la misma fecha y hora o incluso, con el mismo modelo de vehiculo
-        validarFechaModelo(cita, citas);
-
         //Id aleatorio para una cita
         const nuevaCita = {
             ...cita,
             id: shortid()
         }
+
+         //Validar si ya existe una cita con la misma fecha y hora o incluso, con el mismo modelo de vehiculo
+         if(validarFechaModelo(nuevaCita, citas).status === false){
+             Alert.alert("Error", validarFechaModelo(nuevaCita, citas).message);
+             return;
+         }
+
+
+                 console.log(validarFechaModelo(nuevaCita, citas).message)
+
 
         //guardar en el Array nuevasCitas el nuevo objeto
         const nuevasCitas = [...citas, nuevaCita]; 
